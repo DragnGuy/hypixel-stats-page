@@ -9,14 +9,17 @@
     <h1>Player Stats - Result</h1>
     
     <h2>Player Stats:</h2>
-    <p>Name: {{ player_stats.name }}</p>
-    <p>Level: {{ player_stats.level }}</p>
-    <!-- Add other player stats as needed -->
+    <p>Name: {{ player_stats["Info"][0] }}</p>
+    <p>Display Name: {{ player_stats["Info"][1] }}</p>
+    <p>Rank: {{ player_stats["Info"][2] }}</p>
+    <p>One Time Achievements: {{ player_stats["Info"][3] }}</p>
 
     <h2>Bedwars Stats:</h2>
-    <p>Beds Broken: {{ bedwars_stats.beds_broken }}</p>
-    <p>Final Kills: {{ bedwars_stats.final_kills }}</p>
-    <!-- Add other bedwars stats as needed -->
+    <p>Total Bedwars Games Played: {{ bedwars["Info"][0] }}</p>
+    <p>Total Deaths: {{ bedwars["Info"][1] }}</p>
+    <p>Total Final Deaths: {{ bedwars["Info"][2] }}</p>
+    <p>Total Kills: {{ bedwars["Info"][3] }}</p>
+    <p>Total Final Kills: {{ bedwars["Info"][4] }}</p>
 
     <a href="/">Back to Home</a>
 </body>
