@@ -27,7 +27,7 @@ def index():
             error_message = "Error: Player not found. Please try again."
             return render_template('stats.html', error_message=error_message)
 
-        api_key = "9e175ec6-8963-4e69-8175-98d30548ebac"
+        api_key = "5ad2efd8-b2ea-4aa2-8325-84dbe3495ae6"
         url = f"https://api.hypixel.net/v2/player?key={api_key}&uuid={uuid}"
         data = send_req(url)
 

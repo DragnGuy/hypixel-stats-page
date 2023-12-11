@@ -6,22 +6,76 @@
     <link rel="stylesheet" href="result.css">
     <title>Player Stats - Result</title>
 </head>
+<style>
+    body{
+        background-color: rgb(51, 49, 49);
+        color: white;
+    }
+    table, th, td{
+    border: 3px solid rgb(0, 0, 0);
+    color: white;
+    font-size: large;}
+    
+</style>
 <body>
     <h1>Player Stats - Result</h1>
     
     <h2>Player Stats:</h2>
-    <p>Name: {{ player_stats["Info"][0] }}</p>
-    <p>Display Name: {{ player_stats["Info"][1] }}</p>
-    <p>Rank: {{ player_stats["Info"][2] }}</p>
-    <p>One Time Achievements: {{ player_stats["Info"][3] }}</p>
-
+    <table>
+        <tr>
+            <th>Info Type</th>
+            <th>Info</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ player_stats["Info"][0] }}</td>
+        </tr>
+        <tr>
+            <td>Display Name</td>
+            <td>{{ player_stats["Info"][1] }}</td>
+        </tr>
+        <tr>
+            <td>Rank</td>
+            <td>{{ player_stats["Info"][2] }}</td>
+        </tr>
+        <tr>
+            <td>One Time Achievements</td>
+            <td>{{ player_stats["Info"][3] }}</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
     <h2>Bedwars Stats:</h2>
-    <p>Total Bedwars Games Played: {{ bedwars["Info"][0] }}</p>
-    <p>Total Deaths: {{ bedwars["Info"][1] }}</p>
-    <p>Total Final Deaths: {{ bedwars["Info"][2] }}</p>
-    <p>Total Kills: {{ bedwars["Info"][3] }}</p>
-    <p>Total Final Kills: {{ bedwars["Info"][4] }}</p>
-
+    <table>
+        <tr>
+            <th>Info Type</th>
+            <th>Info</th>
+        </tr>
+        <tr>
+            <td>Total Bedwars Games Played</td>
+            <td>{{ bedwars["Info"][0] }}</td>
+        </tr>
+        <tr>
+            <td>Total Deaths</td>
+            <td>{{ bedwars["Info"][1] }}</td>
+        </tr>
+        <tr>
+            <td>Total Final Deaths</td>
+            <td>{{ bedwars["Info"][2] }}</td>
+        </tr>
+        <tr>
+            <td>Total Kills</td>
+            <td>{{ bedwars["Info"][3] }}</td>
+        </tr>
+        <tr>
+            <td>Total Final Kills</td>
+            <td>{{ bedwars["Info"][4] }}</td>
+        </tr>
+    </table>
+    <br>
+    <br>
     <a href="/">Back to Home</a>
 </body>
 </html>
