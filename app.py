@@ -71,11 +71,15 @@ def index():
             total_bedwars_kills = data["player"]["stats"]["Bedwars"]["kills_bedwars"] if "kills_bedwars" in data["player"]["stats"]["Bedwars"] else 0
             # get the total final kills
             total_bedwars_final_kills = data["player"]["stats"]["Bedwars"]["final_kills_bedwars"] if "final_kills_bedwars" in data["player"]["stats"]["Bedwars"] else 0
+            #get the total bedwars wins
+            total_bedwars_wins = data["player"]["achievements"]["bedwars_wins"] if "bedwars_wins" in data["player"]["achievements"] else 0
+            #get the total losses
+            total_bedwars_losses = data["player"]["stats"]["Bedwars"]["losses_bedwars"] if "losses_bedwars" in data["player"]["stats"]["Bedwars"] else 0
 
             # Create a table for bedwars outside the loop
             bedwars = pd.DataFrame({
-                "Info Type": ["Total Bedwars Games Played", "Total Deaths", "Total final deaths", "total kills", "Total final kills"],
-                "Info": [total_played_bedwars_games, total_bedwars_deaths, total_final_deaths, total_bedwars_kills, total_bedwars_final_kills]
+                "Info Type": ["Total Bedwars Games Played", "Total  Bedwars Wins", "Total Bedwars Losses", "Total Deaths", "Total final deaths", "total kills", "Total final kills"],
+                "Info": [total_played_bedwars_games, total_bedwars_wins, total_bedwars_losses, total_bedwars_deaths, total_final_deaths, total_bedwars_kills, total_bedwars_final_kills]
             })
 
             # Display the table stats outside the loop
