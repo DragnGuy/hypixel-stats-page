@@ -5,13 +5,17 @@ import pandas as pd
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    render_template('stats.html')
+
 def send_req(url):
     response = requests.get(url)
     data = response.json()
     return data
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/stats', methods=['GET', 'POST'])
+def stats():
     if request.method == 'POST':
         player_name = request.form['player_name']
 
@@ -88,4 +92,4 @@ def index():
     return render_template('stats.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=2000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
