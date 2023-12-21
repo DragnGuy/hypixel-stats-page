@@ -16,12 +16,43 @@
     color: white;
     font-size: large;}
     
+
+    .accordion{
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(37, 36, 36);
+    padding: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    border: 3px solid rgb(0, 0, 0);
+
+    .panel{
+        background-color: transparent blue;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+    }
+     
+    .BackHome{
+        padding: 2px;
+        background-color: aliceblue;
+    }
+
+   
+    }
 </style>
 <body>
     <h1>Player Stats - Result</h1>
-    
-    <h2>Player Stats:</h2>
-    <table>
+
+    <button class="accordion"><h1><b><i>Player Stats</i></b></h1></button>
+<div class="panel">
+    <center><table>
         <tr>
             <th>Info Type</th>
             <th>Info</th>
@@ -42,13 +73,11 @@
             <td>One Time Achievements</td>
             <td>{{ player_stats["Info"][3] }}</td>
         </tr>
-    </table>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2>Bedwars Stats:</h2>
-    <table>
+    </table></center>
+    </div>
+    <button class="accordion"><h1><b><i>Bedwars</i></b></h1></button>
+<div class="panel">
+    <center><table>
         <tr>
             <th>Info Type</th>
             <th>Info</th>
@@ -81,10 +110,48 @@
             <td>Total Final Kills</td>
             <td>{{ bedwars["Info"][6] }}</td>
         </tr>
-    </table>
+    </table></center>
+    </div>
+
+
     <br>
     <br>
-    <a href="/">Back to Home</a>
+    <a class="BackHome" href="stats.html">Back to Home</a>
 </body>
 </html>
 
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+this.classList.toggle("active");
+
+var panel = this.nextElementSibling;
+if (panel.style.display === "block") {
+  panel.style.display = "none";
+} else {
+  panel.style.display = "block";
+}
+});
+}
+</script>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>

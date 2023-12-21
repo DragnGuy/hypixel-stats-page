@@ -1,15 +1,12 @@
 from flask import Flask, render_template, request
-import sys
 import requests
 import pandas as pd
-from tabulate import tabulate
+
 
 app = Flask(__name__)
 
 def send_req(url):
-    print("Sending request...")
     response = requests.get(url)
-    print("Response:")
     data = response.json()
     return data
 
@@ -27,7 +24,7 @@ def index():
             error_message = "Error: Player not found. Please try again."
             return render_template('stats.html', error_message=error_message)
 
-        api_key = "5ad2efd8-b2ea-4aa2-8325-84dbe3495ae6"
+        api_key = "fab4723a-fe4c-4fb6-afda-674f970b55b0"
         url = f"https://api.hypixel.net/v2/player?key={api_key}&uuid={uuid}"
         data = send_req(url)
 
@@ -81,13 +78,7 @@ def index():
                 "Info Type": ["Total Bedwars Games Played", "Total  Bedwars Wins", "Total Bedwars Losses", "Total Deaths", "Total final deaths", "total kills", "Total final kills"],
                 "Info": [total_played_bedwars_games, total_bedwars_wins, total_bedwars_losses, total_bedwars_deaths, total_final_deaths, total_bedwars_kills, total_bedwars_final_kills]
             })
-
-            # Display the table stats outside the loop
-            print("\nPlayer Stats:")
-            print(tabulate(player_stats, headers="keys", tablefmt="fancy_grid", showindex=False))
-
-            print("\nBedwars Stats:")
-            print(tabulate(bedwars, headers="keys", tablefmt="fancy_grid", showindex=False))
+           
 
             return render_template('result.html', player_stats=player_stats, bedwars=bedwars)
         else:
@@ -97,4 +88,4 @@ def index():
     return render_template('stats.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=2000, debug=True)
